@@ -11,7 +11,7 @@ class RhymersDemo {
         RhymersFactory factory = new DefaultRhymersFactory();
         
         DefaultCountingOutRhymer[] rhymers = { factory.GetStandardRhymer(), factory.GetFalseRhymer(),
-                factory.GetFIFORhymer(), factory.GetHanoiRhymer()};
+                factory.GetFifoRhymer(), factory.GetHanoiRhymer()};
         
         for (int i = 1; i < 15; i++)
             for (int j = 0; j < 3; j++)
@@ -22,7 +22,7 @@ class RhymersDemo {
             rhymers[3].countIn(rn.nextInt(20));
         
         for (int i = 0; i < rhymers.length; i++) {
-            while (!rhymers[i].callCheck())
+            while (!rhymers[i].isEmpty())
                 System.out.print(rhymers[i].countOut() + "  ");
             System.out.println();
         }
